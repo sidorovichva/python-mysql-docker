@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from datetime import datetime
 
-from src.config.EntityBaseModel import EntityBaseModel
+from src.model.EntityBaseModel import EntityBaseModel
 from src.table.FlightEntity import FlightEntity
 from src.utils.Utils import Utils
 

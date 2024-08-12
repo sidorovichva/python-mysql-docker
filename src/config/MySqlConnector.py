@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import os
 
-from src.config.EntityBaseModel import EntityBaseModel
+from src.model.EntityBaseModel import EntityBaseModel
 
 
 class MySqlConnector(ABC):

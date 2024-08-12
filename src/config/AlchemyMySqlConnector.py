@@ -1,15 +1,13 @@
 import sqlalchemy
-from pydantic import BaseModel
-from sqlalchemy.orm import registry, Session
+from sqlalchemy.orm import Session, declarative_base
 
-from src.config.EntityBaseModel import EntityBaseModel
+from src.model.EntityBaseModel import EntityBaseModel
 from src.config.MySqlConnector import MySqlConnector
+
+Base = declarative_base()
 
 
 class AlchemyMySqlConnector(MySqlConnector):
-
-    # def __init__(self):
-    #     registry().generate_base().metadata.create_all(self.get_connection())
 
     @classmethod
     def get_connection(cls):

@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, DateTime
 
-from src.config.DbSession import Base
+from src.config.AlchemyMySqlConnector import AlchemyMySqlConnector, Base
 
 
 class FlightEntity(Base):
@@ -11,6 +11,9 @@ class FlightEntity(Base):
     departure_airport = Column(String(length=5))
     departure_time = Column(DateTime)
 
-    def __str__(self):
+    def __repr__(self):
         return (f"FlightEntity(id={self.id}, flight_number={self.flight_number},"
                 f" departure_airport={self.departure_airport}, departure_time={self.departure_time})")
+
+
+Base.metadata.create_all(AlchemyMySqlConnector.get_connection())
