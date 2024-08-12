@@ -1,6 +1,8 @@
 import sqlalchemy
+from pydantic import BaseModel
 from sqlalchemy.orm import registry, Session
 
+from src.config.EntityBaseModel import EntityBaseModel
 from src.config.MySqlConnector import MySqlConnector
 
 
@@ -24,3 +26,12 @@ class AlchemyMySqlConnector(MySqlConnector):
     @classmethod
     def session(cls) -> Session:
         return Session(bind=cls.get_connection())
+
+    @classmethod
+    def add(cls, o: EntityBaseModel) -> str:
+        session = cls.session()
+        entity = o.to_entity()
+        session.add(entity)
+        session.flush()
+        session.commit()
+        return str(entity)

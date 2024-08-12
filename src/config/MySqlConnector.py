@@ -1,8 +1,7 @@
-import uuid
 from abc import ABC, abstractmethod
 import os
 
-from pydantic import BaseModel
+from src.config.EntityBaseModel import EntityBaseModel
 
 
 class MySqlConnector(ABC):
@@ -29,4 +28,8 @@ class MySqlConnector(ABC):
 
     @abstractmethod
     def session(self):
+        pass
+
+    @abstractmethod
+    def add(self, o: EntityBaseModel) -> str:
         pass

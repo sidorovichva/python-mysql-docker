@@ -8,8 +8,8 @@ router = APIRouter(prefix="/flights")
 
 
 @router.post("/add", status_code=status.HTTP_201_CREATED)
-async def add(flight: Flight) -> None:
-    FlightService().add(flight)
+async def add(flight: Flight) -> str:
+    return FlightService().add(flight)
 
 
 # @router.get("/get")

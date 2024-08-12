@@ -1,12 +1,9 @@
 from sqlalchemy import Column, String, DateTime
 
 from src.config.DbSession import Base
-from src.model.Flight import Flight
-from src.table.Entity import Entity
-from src.utils.Utils import Utils
 
 
-class FlightEntity(Base, Entity):
+class FlightEntity(Base):
     __tablename__ = 'flights'
 
     id = Column(String(length=255), primary_key=True, nullable=False)
@@ -14,10 +11,6 @@ class FlightEntity(Base, Entity):
     departure_airport = Column(String(length=5))
     departure_time = Column(DateTime)
 
-    def add(self, session, o: Flight):
-        return FlightEntity(
-            id=Utils.generate_uuid(),
-            flight_number=o.flight_number,
-            departure_airport=o.departure_airport,
-            departure_time=o.departure_time
-        )
+    def __str__(self):
+        return (f"FlightEntity(id={self.id}, flight_number={self.flight_number},"
+                f" departure_airport={self.departure_airport}, departure_time={self.departure_time})")
