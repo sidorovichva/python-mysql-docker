@@ -9,23 +9,23 @@ class MySqlConnector(ABC):
 
     @classmethod
     def host(cls) -> str:
-        return os.getenv("host")
+        return os.getenv("HOST")
 
     @classmethod
     def port(cls) -> str:
-        return os.getenv("port")
+        return os.getenv("PORT")
 
     @classmethod
     def username(cls) -> str:
-        return os.getenv("username")
+        return os.getenv("USERNAME")
 
     @classmethod
     def password(cls) -> str:
-        return os.getenv("password")
+        return os.getenv("PASSWORD")
 
     @classmethod
     def database(cls) -> str:
-        return os.getenv("database")
+        return os.getenv("DATABASE")
 
     @abstractmethod
     def session(self):
