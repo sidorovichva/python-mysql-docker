@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from datetime import datetime
+from typing import Type
 
 from src.model.EntityBaseModel import EntityBaseModel
 from src.table.FlightEntity import FlightEntity
@@ -19,3 +20,7 @@ class Flight(EntityBaseModel):
             departure_airport=self.departure_airport,
             departure_time=self.departure_time
         )
+
+    @classmethod
+    def to_entity_class(cls) -> Type:
+        return FlightEntity

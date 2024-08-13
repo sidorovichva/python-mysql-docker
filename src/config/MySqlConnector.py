@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 import os
+from typing import Type
 
 from src.model.EntityBaseModel import EntityBaseModel
 
@@ -32,4 +33,11 @@ class MySqlConnector(ABC):
 
     @abstractmethod
     def add(self, o: EntityBaseModel) -> str:
+        pass
+
+    @abstractmethod
+    def get(
+            self, o: Type[EntityBaseModel],
+            equals: dict = None
+    ) -> list:
         pass

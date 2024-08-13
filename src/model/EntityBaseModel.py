@@ -8,3 +8,8 @@ class EntityBaseModel(BaseModel):
     @abstractmethod
     def to_entity(self):
         pass
+
+    @classmethod
+    @abstractmethod
+    def to_entity_class(cls):
+        pass

@@ -16,9 +16,5 @@ class FlightsService:
     def add(self, flight: Flight) -> str:
         return self.connector.add(flight)
 
-    # def get(self) -> None:
-    #     connection: PooledMySQLConnection | MySQLConnectionAbstract = MySqlConfig.get_connection()
-    #     cursor = connection.cursor()
-    #     cursor.execute("SELECT * FROM flights")
-    #     flights = cursor.fetchall()
-    #     connection.close()
+    def get(self):
+        return self.connector.get(Flight)

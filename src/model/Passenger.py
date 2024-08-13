@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from datetime import date
+from typing import Type
 
 from src.model.EntityBaseModel import EntityBaseModel
 from src.table.PassengerEntity import PassengerEntity
@@ -21,3 +22,7 @@ class Passenger(EntityBaseModel):
             passport_number=self.passport_number,
             dob=self.dob
         )
+
+    @classmethod
+    def to_entity_class(cls) -> Type:
+        return PassengerEntity

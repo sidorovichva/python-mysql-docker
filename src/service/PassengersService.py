@@ -14,3 +14,6 @@ class PassengersService:
 
     def add(self, passenger: Passenger) -> str:
         return self.connector.add(passenger)
+
+    def get(self):
+        return self.connector.get(Passenger)

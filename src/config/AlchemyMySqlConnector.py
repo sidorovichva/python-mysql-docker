@@ -1,4 +1,7 @@
+from typing import Type
+
 import sqlalchemy
+from sqlalchemy import select
 from sqlalchemy.orm import Session, declarative_base
 
 from src.model.EntityBaseModel import EntityBaseModel
@@ -33,3 +36,18 @@ class AlchemyMySqlConnector(MySqlConnector):
         session.flush()
         session.commit()
         return str(entity)
+
+    @classmethod
+    def get(
+        cls, entity: Type[EntityBaseModel],
+        equals: dict = None
+    ):
+        session = cls.session()
+        query = select(entity.to_entity_class())
+
+        if equals is not None:
+            for key, value in equals.items():
+                query = query.where(key == value)
+
+        result = session.execute(query).scalars().all()
+        return result

@@ -3,7 +3,6 @@ from starlette import status
 
 from src.model.Flight import Flight
 from src.service.FlightsService import FlightsService
-from src.table.FlightEntity import FlightEntity
 
 router = APIRouter(prefix="/flights")
 
@@ -14,5 +13,5 @@ async def add(flight: Flight) -> str:
 
 
 @router.get("/get")
-async def get() -> list[Flight]:
+async def get():
     return FlightsService().get()

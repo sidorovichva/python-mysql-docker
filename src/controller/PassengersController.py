@@ -14,5 +14,5 @@ async def add(passenger: Passenger) -> str:
 
 
 @router.get("/get")
-async def get() -> list[Flight]:
+async def get():
     return PassengersService().get()
