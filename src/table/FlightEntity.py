@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, DateTime
 
-from src.config.AlchemyMySqlConnector import AlchemyMySqlConnector, Base
+from src.config.MySqlConnector import MySQLConnector, Base
 
 
 class FlightEntity(Base):
@@ -16,4 +16,4 @@ class FlightEntity(Base):
                 f" departure_airport={self.departure_airport}, departure_time={self.departure_time})")
 
 
-Base.metadata.create_all(AlchemyMySqlConnector.get_connection())
+Base.metadata.create_all(MySQLConnector.get_connection())

@@ -1,12 +1,12 @@
-from src.config.MySqlConnector import MySqlConnector
-from src.factory.MySqlConnectorFactory import MySqlConnectorFactory
+from src.config.Connector import Connector
+from src.factory.ConnectorFactory import ConnectorFactory
 from src.model.Passenger import Passenger
 
 
 class PassengersService:
 
     def __init__(self):
-        self.__connector: MySqlConnector = MySqlConnectorFactory.get()
+        self.__connector: Connector = ConnectorFactory.get()
 
     @property
     def connector(self):

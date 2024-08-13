@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Date
 
-from src.config.AlchemyMySqlConnector import AlchemyMySqlConnector, Base
+from src.config.MySqlConnector import MySQLConnector, Base
 
 
 class PassengerEntity(Base):
@@ -17,4 +17,4 @@ class PassengerEntity(Base):
                 f" last_name={self.last_name}, passport_number={self.passport_number}, dob={self.dob})")
 
 
-Base.metadata.create_all(AlchemyMySqlConnector.get_connection())
+Base.metadata.create_all(MySQLConnector.get_connection())
