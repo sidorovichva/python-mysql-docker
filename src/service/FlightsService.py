@@ -1,7 +1,6 @@
 from src.config.MySqlConnector import MySqlConnector
 from src.factory.MySqlConnectorFactory import MySqlConnectorFactory
 from src.model.Flight import Flight
-from src.table.FlightEntity import FlightEntity
 
 
 class FlightsService:

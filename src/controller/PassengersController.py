@@ -1,7 +1,6 @@
 from fastapi import APIRouter
 from starlette import status
 
-from src.model.Flight import Flight
 from src.model.Passenger import Passenger
 from src.service.PassengersService import PassengersService
 
