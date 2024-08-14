@@ -1,0 +1,24 @@
+version: "2.29.1"
+
+services:
+  api:
+    build:
+      context: .
+#      args:
+#        - NODE_ENV=development
+    environment:
+      - ENV=dev
+      - DATABASE=projects
+      - HOST=localhost
+      - PORT=3306
+      - USERNAME=adam
+      - PASSWORD=123
+  database:
+    image: "mysql"
+    env_file:
+      - ./env_vars
+    volumes:
+      - mysql_db_storage:/var/lib/mysql:rw
+volumes:
+  mysql_db_storage:
+
