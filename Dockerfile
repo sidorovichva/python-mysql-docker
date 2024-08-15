@@ -1,5 +1,7 @@
 FROM python:3.12-slim-bullseye
 
+LABEL author="Adam Sidorovich"
+
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y curl
