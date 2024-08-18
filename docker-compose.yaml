@@ -1,24 +1,37 @@
-version: "2.29.1"
+version: "3.9"
 
 services:
+
   api:
     build:
       context: .
-#      args:
-#        - NODE_ENV=development
     environment:
       - ENV=dev
       - DATABASE=projects
-      - HOST=localhost
+      - HOST=mysql
       - PORT=3306
       - USERNAME=adam
       - PASSWORD=123
-  database:
+    ports:
+        - "8099:8099"
+    networks:
+      - fastapi-network
+    depends_on:
+      - mysql
+
+  mysql:
     image: "mysql"
     env_file:
       - ./env_vars
     volumes:
       - mysql_db_storage:/var/lib/mysql:rw
+    networks:
+      - fastapi-network
+
+networks:
+  fastapi-network:
+    driver: bridge
+
 volumes:
   mysql_db_storage:
 
