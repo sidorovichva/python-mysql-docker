@@ -16,6 +16,8 @@ services:
       - fastapi-network
     depends_on:
       - mysql
+    profiles:
+      - dev
 
   mysql:
     image: "mysql"
@@ -25,6 +27,8 @@ services:
       - mysql_db_storage:/var/lib/mysql:rw
     networks:
       - fastapi-network
+    profiles:
+      - dev
 
 networks:
   fastapi-network:
