@@ -1,1 +1,1 @@
-FastAPI service with MySQL DB Image on DockerHub
+Simple API (FastAPI + SqlAlchemy) + MySQL DB using Docker Compose
